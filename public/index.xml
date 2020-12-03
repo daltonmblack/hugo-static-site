@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learn AWS with Dalton</title>
-    <link>http://www.example.com/</link>
+    <link>https://hardcore-montalcini-49bece.netlify.app/</link>
     <description>Recent content on Learn AWS with Dalton</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hardcore-montalcini-49bece.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Second Blog Post</title>
-      <link>http://www.example.com/posts/second_post/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      <link>https://hardcore-montalcini-49bece.netlify.app/posts/second_post/</link>
+      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/second_post/</guid>
+      <guid>https://hardcore-montalcini-49bece.netlify.app/posts/second_post/</guid>
       <description>Blog Post #2 Content</description>
     </item>
     
     <item>
       <title>Step One: Hugo Introduction</title>
-      <link>http://www.example.com/posts/first_post/</link>
+      <link>https://hardcore-montalcini-49bece.netlify.app/posts/first_post/</link>
       <pubDate>Fri, 11 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/first_post/</guid>
+      <guid>https://hardcore-montalcini-49bece.netlify.app/posts/first_post/</guid>
       <description>Hello! Hello from Hugo! If you&amp;rsquo;re reading this in your browser, good job! The file content/post/step-one-hello-hugo.md has been converted into a complete html document by Hugo. Isn&amp;rsquo;t that pretty nifty?
 What is Hugo? Hugo is a static site generator written in go. It is ideal for creating fast, seldom-changing sites. The program is portable and has zero dependencies, and the sites it generates are easy to publish.
 A common use case for static site generators has been making blogs.</description>
@@ -29,10 +29,10 @@ A common use case for static site generators has been making blogs.</description
     
     <item>
       <title></title>
-      <link>http://www.example.com/about/</link>
+      <link>https://hardcore-montalcini-49bece.netlify.app/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/about/</guid>
+      <guid>https://hardcore-montalcini-49bece.netlify.app/about/</guid>
       <description>Hello world!</description>
     </item>
     

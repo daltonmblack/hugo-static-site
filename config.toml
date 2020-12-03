@@ -1,4 +1,4 @@
-baseurl = "http://www.example.com"
+baseurl = "https://hardcore-montalcini-49bece.netlify.app/"
 title = "Learn AWS with Dalton"
 theme = "hugo-coder"
 languagecode = "en"
