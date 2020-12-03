@@ -1,3 +1,57 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseurl = "http://www.example.com"
+title = "Learn AWS with Dalton"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+
+pygmentsstyle = "bw"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[params]
+  author = "Dalton Black"
+  info = "Co-Founder & CTO of Flocky"
+  description = "John Doe's personal website"
+  keywords = "blog,developer,personal"
+  avatarurl = "images/dalton_emerald_lake-256x256.jpg"
+  #gravatar = "john.doe@example.com"
+
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  footercontent = "footer_text"
+  hideFooter = true
+  hideCredits = true
+  hideCopyright = false
+  since = 2020
+
+  enableTwemoji = true
+
+  colorsheme = "auto"
+  hidecolorschemetoggle = false
+
+  #customCSS = ["css/custom.css"]
+  #customSCSS = ["scss/custom.scss"]
+  #customJS = ["js/custom.js"]
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  url = "https://github.com/daltonmblack/"
+[[params.social]]
+  name = "Linkedin"
+  icon = "fa fa-linkedin-square fa-2x"
+  url = "https://www.linkedin.com/in/daltonb/"
+
+# Menu links
+[[menu.main]]
+  name = "Blog"
+  weight = 1
+  url  = "posts/"
+[[menu.main]]
+  name = "About"
+  weight = 2
+  url = "about/"
