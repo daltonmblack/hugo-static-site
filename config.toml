@@ -1,5 +1,5 @@
 baseurl = "https://hardcore-montalcini-49bece.netlify.app/"
-title = "Learn AWS with Dalton"
+title = "Learn, Build, Deliver"
 theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
@@ -12,8 +12,8 @@ pygmentscodefencesguesssyntax = true
 
 [params]
   author = "Dalton Black"
-  info = "Co-Founder & CTO of Flocky"
-  description = "John Doe's personal website"
+  info = "Software Engineer"
+  description = "A digital journal for learning and projects"
   keywords = "blog,developer,personal"
   avatarurl = "images/dalton_emerald_lake-256x256.jpg"
   #gravatar = "john.doe@example.com"
@@ -29,12 +29,12 @@ pygmentscodefencesguesssyntax = true
 
   enableTwemoji = true
 
-  colorsheme = "auto"
+  colorScheme = "dark"
   hidecolorschemetoggle = false
 
-  #customCSS = ["css/custom.css"]
-  #customSCSS = ["scss/custom.scss"]
-  #customJS = ["js/custom.js"]
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
 
 # Social links
 [[params.social]]
@@ -50,7 +50,7 @@ pygmentscodefencesguesssyntax = true
 [[menu.main]]
   name = "Blog"
   weight = 1
-  url  = "posts/"
+  url = "posts/"
 [[menu.main]]
   name = "About"
   weight = 2
