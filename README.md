@@ -1,1 +1,1 @@
-# learning-aws-blog
+# Hugo Static Site
