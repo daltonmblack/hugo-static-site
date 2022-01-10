@@ -26,14 +26,15 @@ Stardew Valley is a simpler game in both its gameplay, and its graphics. I also 
 
 ## SeasonSwitcher
 
-The mod I created for Stardew Valley is called [SeasonSwitcher](https://www.nexusmods.com/stardewvalley/mods/10457). It allows the player to instantly cycle to the next season (Spring -> Summer -> Fall -> Winter) at the press of a button. The.
+The mod I created for Stardew Valley is called [SeasonSwitcher](https://www.nexusmods.com/stardewvalley/mods/10457). It allows the player to instantly cycle to the next season (Spring -> Summer -> Fall -> Winter) at the press of a button.
 
-<!--
 ![spring](/images/stardew-spring.png)
+
 ![summer](/images/stardew-spring.png)
+
 ![fall](/images/stardew-spring.png)
+
 ![winter](/images/stardew-spring.png)
--->
 
 ### Why so simple?
 
@@ -51,7 +52,7 @@ The way I figured out what code I could manipulate was by using `ILSpy.exe` to d
 
 ### SeasonSwitcher Code
 
-```c#
+```
 public class ModEntry : Mod
 {
     public override void Entry(IModHelper helper)
@@ -94,7 +95,7 @@ public class ModEntry : Mod
 
 ### Try SeasonSwitcher for yourself
 
-`SeasonSwitcher` is available for public download here: https://www.nexusmods.com/stardewvalley/mods/10457.
+`SeasonSwitcher` is available for public download [here](https://www.nexusmods.com/stardewvalley/mods/10457).
 
 For instructions on how to install this mod, and any other mods, see the [Modding Player Guide](https://www.stardewvalleywiki.com/Modding:Player_Guide/Getting_Started). I personally have already tried roughly 20 Stardew Valley mods built by other developers. I personally recommend [NexusMods](https://www.nexusmods.com/stardewvalley/mods) combined with the [Vortex](https://www.nexusmods.com/about/vortex/) mod manager. Setting up mods for the first time will likely be tedious, but it's worth pushing through any frustration. It's uniquely satisfying to apply custom enhancements to a game you already love. 
 
