@@ -30,11 +30,11 @@ The mod I created for Stardew Valley is called [SeasonSwitcher](https://www.nexu
 
 ![spring](/images/stardew-spring.png)
 
-![summer](/images/stardew-spring.png)
+![summer](/images/stardew-summer.png)
 
-![fall](/images/stardew-spring.png)
+![fall](/images/stardew-fall.png)
 
-![winter](/images/stardew-spring.png)
+![winter](/images/stardew-winter.png)
 
 ### Why so simple?
 
