@@ -1,6 +1,14 @@
-<!--
-  TODO: add header
--->
+---
+title: "Stardew Valley Mod (SeasonSwitcher)"
+description: "My first video game mod"
+date: "2022-01-09"
+categories:
+tags:
+  - "stardew"
+  - "mod"
+  - "c#"
+  - "blog"
+---
 
 ## Intro
 
