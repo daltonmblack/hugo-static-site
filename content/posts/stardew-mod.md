@@ -6,7 +6,7 @@ categories:
 tags:
   - "stardew"
   - "mod"
-  - "c#"
+  - "csharp"
   - "blog"
 ---
 
