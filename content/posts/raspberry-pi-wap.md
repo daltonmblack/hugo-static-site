@@ -1,4 +1,4 @@
-<!-- ---
+---
 title: "Raspberry Pi - WiFi Access Point"
 description: "Custom pass-through access point using a Raspberry Pi Zero 2 W"
 date: "2022-01-12"
@@ -8,7 +8,7 @@ tags:
   - "wifi"
   - "debugging"
   - "blog"
---- -->
+---
 
 ## Intro
 
