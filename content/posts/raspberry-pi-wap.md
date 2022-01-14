@@ -46,9 +46,9 @@ The rest of loading the OS onto the micro-SD was relatively straightforward usin
 
 The next steps in connecting to the Pi involved manually updating some configuration files on the SD card (while the card is still plugged into my actual laptop). In addition to the config file updates, I also created an empty file named `ssh`. Don't worry, if you're interested in more detailed steps, I'll be posting key links in the `Appendix/Resources` section at the bottom.
 
-At this point, I was ready to try things out. I put the SD card in the Pi, and connected the Pi to my laptop via their USB ports. After waiting the requisite amount of time for the Pi to boot up, I attempted to connect to the Pi from my _Windows_ (sigh) laptop using PuTTY to SSH to `raspberrypi.local`. PuTTY threw an error saying it could not find the hostname.
+At this point, I was ready to try things out. I put the SD card in the Pi, and connected the Pi to my laptop via USB. After waiting the requisite amount of time for the Pi to boot up, I attempted to connect to the Pi from my _Windows_ (sigh) laptop using PuTTY to SSH to `raspberrypi.local`. PuTTY threw an error saying it could not find the hostname.
 
-My first thought was that I missed a setup step when configuring the Pi to run SSH over USB. So, I turned off the device and inspected the files on the SD card via my laptop. To my dismay, a new file (named `ssh`) I had created, was now missing. I recreated this file, loaded the card into the Pi, and then tried connecting via SSH. I got the same error. And, upon inspection, the file was gone again.
+My first thought was that I missed a setup step when configuring the Pi to run SSH over USB. So, I turned off the device and inspected the files on the SD card via my laptop. To my dismay, the new `ssh` file I had created, was missing. I recreated this file, loaded the card into the Pi, and then tried connecting via SSH. I got the same error. And, upon inspection, the file was gone again.
 
 Back to Google I went. Eventually, I learned that the Pi consumes `/boot/ssh` upon startup, which causes it to enable SSH. After that point, SSH remains enabled until something disables it. Since the missing file wasn't actually a problem, I cross-referenced a few more tutorials, but none of them worked. This caused me to change tactics to connecting over WiFi.
 
@@ -63,50 +63,52 @@ ctrl_interface=/var/run/wpa_supplicant
 
 network={
  scan_ssid=1
- ssid="GoodTimeMiami2"
- psk="Pa55w0rd1234"
+ ssid="<network_name>"
+ psk="<network_password>"
 }
 ```
 
 After loading the SD card back into the Pi and booting it up, I was finally able to SSH via PuTTY! This was a good milestone.
 
-Now, I cautiously thought I was home-free to turn the Pi into an access point like I originally intended. I followed the appropriate steps, making necessary alterations such as substituting the `usb0` interface for the `eth0` interface because the USB interface is the one I was using in Ethernet mode to connect to my laptop. I completed all of the steps, and then told the Pi to restart. This expectedly killed my SSH connection.
+Now, I cautiously thought I was home-free to turn the Pi into an access point like I originally intended. I followed the appropriate steps, making necessary alterations. One such alteration was substituting the `usb0` interface for the `eth0` interface because the Pi's USB interface is the one I was using in Ethernet mode to connect to my laptop. I completed all of the steps, and then told the Pi to restart. This expectedly killed my SSH connection.
 
-However, once the Pi restarted, the new WiFi network (e.g., SSID "GoodTimeMiami2") never appeared. Not only was this a problem, I couldn't re-SSH to the Pi, because I had repurposed the WiFi interface (`wlan0`) for running the new access point. This is why this section is still considered an obstacle. I needed to circle back to my original attempt of connecting to the Pi via SSH over USB.
+However, once the Pi restarted, the new WiFi network that I had just configured (named SSID "GoodTimeMiami2") never appeared. Not only was this a problem, I couldn't re-SSH to the Pi, because I had repurposed the WiFi interface (`wlan0`) for running the new access point. This is why this section is still considered an obstacle. I needed to circle back to my original attempt of SSH-ing to the Pi via USB.
 
 #### Obstacle #4: Connecting to the Pi using SSH over USB (again)
 
-If you remember from above, the connection problem was manifesting as a generic PuTTY error about being unable to resolve the hostname. I'll gloss over a lot of the detail here. During a slew of Google searches, I noticed a forum post that referenced a missing Windows driver named `RNDIS/Ethernet Gadget`. This led to another forum post identifying this missing driver as the problem.
+If you remember from above, the connection problem was manifesting as a generic PuTTY error about being unable to resolve the hostname. I'll gloss over a lot of the detail here. During a slew of Google searches, I noticed a forum post that referenced a missing Windows driver named `RNDIS/Ethernet Gadget`. This led to another forum post confirming that the missing driver was the problem.
 
-Now I was on a quest to track down this driver that, as far as I can tell, had its newest version released in 2010. This scavenger hunt involved multiple obscure forum posts as well as dead links that used to host the missing driver. Eventually, I came across an obscure YouTube video, narrated by a bot, that pointed to a working copy of the driver and also gave instructions of how to get Windows `Device Manager` to correctly install the driver's "cabinet file", which was a file type I had no idea existed until that moment. A bit of fairy dust and a smidge of incantation later, the driver was installed!
+Now I was on a quest to track down this driver that, as far as I can tell, had its newest version released in 2010. This scavenger hunt involved multiple obscure forum posts as well as dead links that previously hosted the missing driver. Eventually, I came across an obscure YouTube video, narrated by a bot, that pointed to a working copy of the driver and also gave instructions of how to get `Windows Device Manager` to correctly install the driver's "cabinet file", which was a file type I had no idea existed until that moment. A bit of fairy dust and a smidge of incantation later, the driver was installed!
 
 I attempted to SSH to the Pi over USB, and it now worked! Huzzah! My biggest problem of the project thus far had been solved. I could actually start working on the entire point of the project: turning a Pi into a WiFi access point.
 
 ### Setting up the WiFi access point
 
-This section of the project only had a single road block! I'm going to gloss over most of the detail of setting up the WiFi access point because the debugging aspect of this project feels like where I learned the most.
+This section of the project only had a single road block! I'm going to gloss over most of the detail of setting up the WiFi access point because the debugging aspect of this project is where I learned the most.
 
-I carefully implemented all necessary steps, and then restarted the Pi hoping for the best. Sadly, my new network, `GoodTimeMiami2` didn't show up still.
+I carefully implemented all necessary steps, and then restarted the Pi hoping for the best. Sadly, my new network, `GoodTimeMiami2` didn't show up.
 
 #### Obstacle #5: finding the missing network
 
-Solving this issue involved more... wait for it... Googling and trial-and-error. Eventually, I thought to test the liveness of one of the key services I installed on the Pi, `hostapd`, by running `sudo systemctl start hostapd`. This produced an error, which gave me talking about the service being "masked". This gave me a concrete symptom to refine my search with. After more searching I found a solution for how to unmask the service. The solution worked and I was able to successfully start the service.
+Solving this issue involved more... wait for it... Googling and trial-and-error. Eventually, I thought to test the liveness of one of the key services I installed on the Pi, `hostapd`, by running `sudo systemctl start hostapd`. This produced an error mentioning something about the service being "masked". This gave me a concrete symptom to refine my search. After more searching I found a solution for how to unmask the service. The solution worked and I was able to successfully start the service.
 
 With fingers crossed, I opened up my phone to search for the new WiFi network (`GoodTimeMiami2`), and it showed up!
 
 ### Results
 
-First is a screenshot of my phone being successfully connected to the new `GoodTimeMiami2` network. It probably isn't a surprise that I made this project while visiting Miami.
+First is a screenshot of my phone being successfully connected to the new `GoodTimeMiami2` network. You can guess what city I was visiting this week.
 
 ![rpi_connected_network](/images/rpi_connected_network.jpg)
 
-Second is a picture of the final Pi setup in front of the connected SSH terminal.
+Second is a picture of the final Pi setup in front of the connected SSH terminal on my laptop.
 
 ![pi_wifi](/images/pi_wifi.jpg)
 
 ## Conclusion
 
 Out of the roughly 6 hours that this project took, probably 5 hours of it were debugging. All of the debugging effort paid off, and I got the Pi up-and-running as a WiFi access point!
+
+![mystery_solved](/images/mystery_solved.gif)
 
 The feeling of solving an obnoxious problem after hours of debugging is one I personally find super satisfying. Also, banging my head against a difficult problem is one of the most effective ways for me to learn new things. The process of trying to solve the problem involves poking and prodding it from every angle. This results in me learning a broader set of information, instead of only the N exact steps required to actually solve the problem.
 
